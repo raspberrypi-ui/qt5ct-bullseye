@@ -294,7 +294,7 @@ void Qt5CTPlatformTheme::readSettings()
         m_palette = nullptr;
     }
 
-    QSettings settings(Qt5CT::configFile(), QSettings::IniFormat);
+    QSettings settings("qt5ct", "qt5ct");
 
     settings.beginGroup("Appearance");
     m_style = settings.value("style", "Fusion").toString();

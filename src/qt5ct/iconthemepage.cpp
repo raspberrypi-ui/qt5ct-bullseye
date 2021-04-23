@@ -58,7 +58,7 @@ IconThemePage::~IconThemePage()
 
 void IconThemePage::writeSettings()
 {
-    QSettings settings(Qt5CT::configFile(), QSettings::IniFormat);
+    QSettings settings("qt5ct", "qt5ct");
     QTreeWidgetItem *item = m_ui->treeWidget->currentItem();
     if(item)
         settings.setValue("Appearance/icon_theme", item->data(3, Qt::UserRole));
@@ -84,7 +84,7 @@ void IconThemePage::resizeEvent(QResizeEvent *event)
 
 void IconThemePage::readSettings()
 {
-    QSettings settings(Qt5CT::configFile(), QSettings::IniFormat);
+    QSettings settings("qt5ct", "qt5ct");
     QString name = settings.value("Appearance/icon_theme").toString();
 
     if(name.isEmpty())
